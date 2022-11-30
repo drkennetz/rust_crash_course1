@@ -9,4 +9,14 @@ fn main() {
     println!("Firing {ready} of my {missiles} missiles");
     missiles = missiles - ready;
     println!("{missiles} missiles left");
+
+    // shadowing
+    let x = 5;
+    {
+        let x = 99;
+        // first value of x is not accessible from inner block once x is shadowed
+        println!("x: {x}");
+    }
+    // inner x is dropped
+    println!("x: {x}");
 }
